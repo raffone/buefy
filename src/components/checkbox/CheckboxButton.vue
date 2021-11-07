@@ -21,7 +21,13 @@
                 :name="name"
                 :value="nativeValue"
                 @focus="isFocused = true"
-                @blur="isFocused = false">
+                @blur="isFocused = false"
+                :autocomplete="autocomplete"
+                :true-value="trueValue"
+                :false-value="falseValue"
+                :aria-labelledby="ariaLabelled"
+                :indeterminate.prop="indeterminate"
+                >
         </label>
     </div>
 </template>
@@ -37,7 +43,21 @@ export default {
             type: String,
             default: 'is-primary'
         },
-        expanded: Boolean
+        expanded: Boolean,
+        indeterminate: Boolean,
+        ariaLabelledby: String,
+        trueValue: {
+            type: [String, Number, Boolean, Function, Object, Array],
+            default: true
+        },
+        falseValue: {
+            type: [String, Number, Boolean, Function, Object, Array],
+            default: false
+        },
+        autocomplete: {
+            type: String,
+            default: 'on'
+        }
     },
     data() {
         return {
